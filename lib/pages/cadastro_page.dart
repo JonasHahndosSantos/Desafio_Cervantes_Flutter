@@ -36,7 +36,7 @@ class _CadastroPageState extends State<CadastroPage> {
       final numero = int.parse(_numeroController.text);
 
       if (_modoAtualizacao) {
-        await DatabaseHelper.atualizarCadastro(_numeroAtualizacao!, texto);
+        await DatabaseHelper.atualizarCadastro(numero, texto);
         _mostrarMensagem('Cadastro atualizado com sucesso!');
       } else {
         final jaExiste = await DatabaseHelper.verificarNumeroExistente(numero);
@@ -62,6 +62,7 @@ class _CadastroPageState extends State<CadastroPage> {
       _numeroAtualizacao = item['numero'];
       _textoController.text = item['texto'];
       _numeroController.text = item['numero'].toString();
+
     });
   }
 
@@ -123,14 +124,13 @@ class _CadastroPageState extends State<CadastroPage> {
           ],
         ),
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             Center(
               child: Container(
-                width: 300, // Definindo largura fixa para os campos de texto
+                width: 300,
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -173,9 +173,9 @@ class _CadastroPageState extends State<CadastroPage> {
                 itemCount: _cadastros.length,
                 itemBuilder: (context, index) {
                   final item = _cadastros[index];
-                  return Center( // Centraliza todo o ListTile
+                  return Center(
                     child: Container(
-                      width: 400, // Largura total do bloco
+                      width: 400,
                       margin: const EdgeInsets.symmetric(vertical: 6),
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
@@ -192,7 +192,6 @@ class _CadastroPageState extends State<CadastroPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          // Texto e número juntos com largura menor
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -213,7 +212,6 @@ class _CadastroPageState extends State<CadastroPage> {
                               ),
                             ],
                           ),
-                          // Botões
                           Row(
                             children: [
                               IconButton(

@@ -18,17 +18,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Desafio Cervantes',
       theme: ThemeData(
-        primarySwatch: Colors.blue, // Cor primária
-        brightness: Brightness.dark, // Tema escuro
-        scaffoldBackgroundColor: Colors.white10, // Fundo escuro suave
+        primarySwatch: Colors.blue,
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.white10,
         appBarTheme: AppBarTheme(
-          backgroundColor: Colors.blueGrey[900], // Cor da AppBar
+          backgroundColor: Colors.blueGrey[900],
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            foregroundColor: Colors.white, backgroundColor: Colors.green, // Cor do texto
+            foregroundColor: Colors.white, backgroundColor: Colors.green,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12), // Bordas arredondadas
+              borderRadius: BorderRadius.circular(12),
             ),
           ),
         ),
